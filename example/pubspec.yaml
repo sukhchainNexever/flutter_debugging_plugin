@@ -1,0 +1,26 @@
+name: flutter_debugging_plugin_example
+description: "Demonstrates how to use the flutter_debugging_plugin plugin."
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+# consider running `flutter pub upgrade --major-versions`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_debugging_plugin:
+    path: ../
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+

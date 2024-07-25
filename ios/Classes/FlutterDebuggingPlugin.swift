@@ -48,20 +48,37 @@ public class FlutterDebuggingPlugin: NSObject, FlutterPlugin {
 
     private func isDeviceRooted() -> Bool {
         let fileManager = FileManager.default
-        let paths = [
+        let pathsToCheck = [
             "/Applications/Cydia.app",
             "/Library/MobileSubstrate/MobileSubstrate.dylib",
             "/bin/bash",
             "/usr/sbin/sshd",
-            "/etc/apt"
+            "/etc/apt",
+            "/private/var/lib/apt",
+            "/private/var/lib/cydia",
+            "/private/var/mobile/Library/SBSettings/Themes",
+            "/private/var/stash",
+            "/private/var/tmp/cydia.log",
+            "/System/Library/LaunchDaemons/com.ikey.bbot.plist",
+            "/System/Library/LaunchDaemons/com.saurik.Cydia.Startup.plist",
+            "/usr/bin/ssh"
         ]
 
-        for path in paths {
+        for path in pathsToCheck {
             if fileManager.fileExists(atPath: path) {
                 return true
             }
         }
 
-        return false
+        // Check if we can write to a file in a restricted directory
+        let testFilePath = "/private/check_jailbreak.txt"
+        let stringTestWrite = "checking jailbreak..."
+        do {
+            try stringTestWrite.write(toFile: testFilePath, atomically: true, encoding: .utf8)
+            try fileManager.removeItem(atPath: testFilePath)
+            return true
+        } catch {
+            return false
+        }
     }
 }

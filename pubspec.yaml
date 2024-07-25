@@ -1,8 +1,8 @@
 name: flutter_debugging_plugin
 description: "To implement platform-specific functionality like checking USB debugging, VPN status, and device rooting in a Flutter plugin, you need to create a custom Flutter plugin. This involves defining methods in Dart, implementing platform-specific code in Android (Kotlin/Java) and iOS (Swift/Objective-C), and then linking these implementations via a method channel.."
 version: 0.0.1
-#homepage: https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus/device_info_plus
-#repository: https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus/device_info_plus
+homepage: https://github.com/sukhchainNexever/flutter_debugging_plugin
+repository: https://github.com/sukhchainNexever/flutter_debugging_plugin
 #issue_tracker: https://github.com/fluttercommunity/plus_plugins/labels/device_info_plus
 #topics:
 #  - device

@@ -97,4 +97,3 @@ void printLog(
     }
   }
 }
-git push -u origin main
